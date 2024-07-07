@@ -30,10 +30,12 @@ class CSVUploadView(APIView):
 class DynamicDataView(APIView):
     def get(self, request, *args, **kwargs):
         table_name = request.query_params.get('table')
-        filters = {key: value for key, value in request.query_params.items() if key != 'table'}
+        if not table_name:
+            return Response({"error": "Table name is required."}, status=status.HTTP_400_BAD_REQUEST)
 
-        where_clause = " AND ".join([f"{key} = %s" for key in filters.keys()])
-        query = f"SELECT * FROM {table_name} WHERE {where_clause}"
+        filters = {key: value for key, value in request.query_params.items() if key != 'table'}
+        where_clause = " AND ".join([f'"{key}" = %s' for key in filters.keys()])
+        query = f'SELECT * FROM "{table_name}"' + (f' WHERE {where_clause}' if where_clause else "")
 
         with connection.cursor() as cursor:
             cursor.execute(query, list(filters.values()))
