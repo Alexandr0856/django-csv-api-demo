@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from api.views import DynamicDataView, CSVUploadView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('upload-csv/', CSVUploadView.as_view(), name='upload-csv'),
+    path('data/', DynamicDataView.as_view(), name='data-list'),
 ]

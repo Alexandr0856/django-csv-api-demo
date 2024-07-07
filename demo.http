@@ -1,0 +1,22 @@
+### POST request to saving a csv file
+POST http://127.0.0.1:8000/upload-csv/
+Content-Type: application/json
+
+{
+    "url": "https://www.stats.govt.nz/assets/Uploads/Tatauranga-umanga-Maori-Statistics-on-Maori-businesses/Tatauranga-umanga-Maori-Statistics-on-Maori-businesses-March-2024-quarter/Download-data/tatauranga-umanga-maori-statistics-on-maori-businesses-march-2024-quarter.csv",
+    "table_name": "first_table"
+}
+
+### POST request to saving a csv file with overwriting
+POST http://127.0.0.1:8000/upload-csv/
+Content-Type: application/json
+
+{
+    "url": "https://www.stats.govt.nz/assets/Uploads/Tatauranga-umanga-Maori-Statistics-on-Maori-businesses/Tatauranga-umanga-Maori-Statistics-on-Maori-businesses-March-2024-quarter/Download-data/tatauranga-umanga-maori-statistics-on-maori-businesses-march-2024-quarter.csv",
+    "table_name": "first_table",
+    "overwrite": true
+}
+
+### GET request to get data from the table
+GET http://127.0.0.1:8000/data/?table=first_table&year=2011&value=8187
+Accept: application/json
