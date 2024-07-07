@@ -57,7 +57,7 @@ Your project should now be available at [http://127.0.0.1:8000/](http://127.0.0.
 
 ### Uploading a CSV File
 
-Make a POST request to `http://127.0.0.1:8000/upload-csv/` with a JSON body containing the URL to the CSV file and the table name. Optionally, you can specify the `overwrite` parameter.
+Make a POST request to `http://127.0.0.1:8000/api/upload-csv/` with a JSON body containing the URL to the CSV file and the table name. Optionally, you can specify the `overwrite` parameter.
 
 ```json
 {
@@ -71,4 +71,6 @@ Make a POST request to `http://127.0.0.1:8000/upload-csv/` with a JSON body cont
 
 Make a GET request to `http://127.0.0.1:8000/api/data/?table=desired_table_name&column1=value1` to retrieve data from the table filtered by `column1`.
 
+### Examples
 
+Examples of how to use the API endpoints can be found in the demo.http file.
