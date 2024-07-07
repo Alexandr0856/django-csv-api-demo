@@ -1,5 +1,5 @@
 ### POST request to saving a csv file
-POST http://127.0.0.1:8000/upload-csv/
+POST http://127.0.0.1:8000/api/upload-csv/
 Content-Type: application/json
 
 {
@@ -8,7 +8,7 @@ Content-Type: application/json
 }
 
 ### POST request to saving a csv file with overwriting
-POST http://127.0.0.1:8000/upload-csv/
+POST http://127.0.0.1:8000/api/upload-csv/
 Content-Type: application/json
 
 {
@@ -18,5 +18,5 @@ Content-Type: application/json
 }
 
 ### GET request to get data from the table
-GET http://127.0.0.1:8000/data/?table=first_table&year=2011&value=8187
+GET http://127.0.0.1:8000/api/data/?table=first_table&value=772
 Accept: application/json
